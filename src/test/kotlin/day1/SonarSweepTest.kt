@@ -11,13 +11,14 @@ internal class SonarSweepTest {
     @ParameterizedTest
     @MethodSource("depth increase data")
     fun `test calculateDepthIncreaseSpeed`(data: TestData) {
-        val result = sonarSweep.calculateDepthIncreaseSpeed(data.input)
+        val result = sonarSweep.calculateDepthIncreaseSpeed(data.input, windowSize = data.windowSize)
         assertEquals(data.expected, result)
     }
 
     companion object {
         data class TestData(
             val input: List<Int>,
+            val windowSize: Int = 1,
             val expected: Int
         )
 
@@ -40,6 +41,16 @@ internal class SonarSweepTest {
                 input = listOf(1,2,1,2,1),
                 expected = 2
             ),
+            TestData(
+                input = listOf(1,2,3,4,5,6),
+                windowSize = 2,
+                expected = 4
+            ),
+            TestData(
+                input = listOf(199,200,208,210,200,207,240,269,260,263),
+                windowSize = 3,
+                expected = 5
+            )
         )
     }
 }
