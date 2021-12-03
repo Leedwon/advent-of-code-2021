@@ -6,7 +6,7 @@ fun main(args: Array<String>) {
     val depthIncreaseSpeed = sonarSweep.calculateDepthIncreaseSpeed(getFileIntContent("/day1_challenge_1_input.txt"))
     println(
         buildString {
-            append("day1 task1 result = $depthIncreaseSpeed")
+            appendLine("day1 task1 result = $depthIncreaseSpeed")
         }
     )
 }
