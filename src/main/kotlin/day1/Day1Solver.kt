@@ -19,5 +19,4 @@ class Day1Solver(private val sonarSweep: SonarSweep) : DaySolver {
             windowSize = 3
         ).toString()
     }
-
 }
