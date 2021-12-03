@@ -1,12 +1,17 @@
-import day1.SonarSweep
-import util.getFileIntContent
+import di.MainComponent
+import util.DaySolver
+
+private fun DaySolver.buildText(): String = buildString {
+    appendLine("$dayDescription challenge 1 result = ${solveFirstChallenge()}")
+    appendLine("$dayDescription challenge 2 result = ${solveSecondChallenge()}")
+}
 
 fun main(args: Array<String>) {
-    val sonarSweep = SonarSweep()
-    val depthIncreaseSpeed = sonarSweep.calculateDepthIncreaseSpeed(getFileIntContent("/day1_challenge_1_input.txt"))
     println(
         buildString {
-            appendLine("day1 task1 result = $depthIncreaseSpeed")
+            for (solver in MainComponent.solvers) {
+                append(solver.buildText())
+            }
         }
     )
 }
