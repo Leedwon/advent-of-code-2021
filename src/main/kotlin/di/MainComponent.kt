@@ -3,6 +3,8 @@ package di
 import day1.Day1Solver
 import day1.SonarSweep
 import day2.*
+import day3.BinaryDiagnoses
+import day3.Day3Solver
 import util.DaySolver
 
 object MainComponent {
@@ -28,8 +30,17 @@ object MainComponent {
             newNavigator = submarineNewNavigator
         )
 
+    private val binaryDiagnoses: BinaryDiagnoses
+        get() = BinaryDiagnoses()
+
+    private val day3Solver
+        get() = Day3Solver(
+            binaryDiagnoses = binaryDiagnoses
+        )
+
     val solvers: List<DaySolver> = listOf(
         day1Solver,
-        day2Solver
+        day2Solver,
+        day3Solver
     )
 }
