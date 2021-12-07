@@ -19,7 +19,7 @@ internal class BingoBoardTest {
     @ParameterizedTest
     @MethodSource("bingo win test data provider")
     fun `test bingo won`(data: BingoWinTestData) {
-        for (element in bingo) {
+        for (element in bingo.values) {
             if (element.value in data.markedValues) {
                 element.marked = true
             }

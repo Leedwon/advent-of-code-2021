@@ -1,7 +1,7 @@
 package day4
 
 data class BingoBoard(
-    private val values: List<BingoElement>
+    val values: List<BingoElement>
 ) {
     private val sideSize = 5
     private val expectedSize = sideSize * sideSize
@@ -14,7 +14,6 @@ data class BingoBoard(
     }
 
     operator fun get(x: Int, y: Int): BingoElement = values[y * sideSize + x]
-    operator fun iterator(): Iterator<BingoElement> = values.iterator()
 
     private fun checkWinCondition(): Boolean {
         for (i in (0 until sideSize)) {
