@@ -5,6 +5,9 @@ import day1.SonarSweep
 import day2.*
 import day3.BinaryDiagnoses
 import day3.Day3Solver
+import day4.BingoDataProvider
+import day4.BingoFinder
+import day4.Day4Solver
 import util.DaySolver
 
 object MainComponent {
@@ -38,9 +41,19 @@ object MainComponent {
             binaryDiagnoses = binaryDiagnoses
         )
 
+    private val bingoDataProvider: BingoDataProvider
+        get() = BingoDataProvider()
+
+    private val bingoFinder: BingoFinder
+        get() = BingoFinder()
+
+    private val day4Solver
+        get() = Day4Solver(bingoDataProvider, bingoFinder)
+
     val solvers: List<DaySolver> = listOf(
         day1Solver,
         day2Solver,
-        day3Solver
+        day3Solver,
+        day4Solver
     )
 }
