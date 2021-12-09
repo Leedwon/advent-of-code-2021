@@ -6,7 +6,7 @@ import day2.*
 import day3.BinaryDiagnoses
 import day3.Day3Solver
 import day4.BingoDataProvider
-import day4.BingoWinnerFinder
+import day4.BingoFinder
 import day4.Day4Solver
 import util.DaySolver
 
@@ -44,11 +44,11 @@ object MainComponent {
     private val bingoDataProvider: BingoDataProvider
         get() = BingoDataProvider()
 
-    private val bingoWinnerFinder: BingoWinnerFinder
-        get() = BingoWinnerFinder()
+    private val bingoFinder: BingoFinder
+        get() = BingoFinder()
 
     private val day4Solver
-        get() = Day4Solver(bingoDataProvider, bingoWinnerFinder)
+        get() = Day4Solver(bingoDataProvider, bingoFinder)
 
     val solvers: List<DaySolver> = listOf(
         day1Solver,

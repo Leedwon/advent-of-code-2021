@@ -2,7 +2,7 @@ package day4
 
 import java.lang.IllegalStateException
 
-class BingoWinnerFinder {
+class BingoFinder {
 
     fun getWinnerScore(bingoData: BingoData): Int {
         val (values, boards) = bingoData
@@ -15,6 +15,21 @@ class BingoWinnerFinder {
             }
         }
         throw IllegalStateException("winner could not be find")
+    }
+
+    fun getLoserScore(bingoData: BingoData): Int {
+        val (values, boards) = bingoData
+
+        var boardsInGame = boards
+        var lastValue = 0
+
+        for (value in values) {
+            if (boardsInGame.size == 1 && boardsInGame.first().won) break
+            boardsInGame = boardsInGame.filter { !it.won }
+            lastValue = value
+            boards.markIfHit(value)
+        }
+        return boardsInGame.first().calculateScore(lastValue)
     }
 
     private fun BingoBoard.calculateScore(lastValue: Int): Int {
