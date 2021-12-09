@@ -2,14 +2,19 @@ package day5
 
 import util.DaySolver
 
-class Day5Solver : DaySolver {
+class Day5Solver(
+    oceanLinesDataProvider: OceanLinesDataProvider,
+    private val oceanLinesDetector: OceanLinesDetector
+) : DaySolver {
     override val dayDescription: String = "day 5"
 
+    private val oceanLines = oceanLinesDataProvider.getLines("/day5_input.txt")
+
     override fun solveFirstChallenge(): String {
-        TODO("Not yet implemented")
+        return oceanLinesDetector.countOverlappingLines(oceanLines, countDiagonals = false).toString()
     }
 
     override fun solveSecondChallenge(): String {
-        TODO("Not yet implemented")
+        return oceanLinesDetector.countOverlappingLines(oceanLines, countDiagonals = true).toString()
     }
 }
