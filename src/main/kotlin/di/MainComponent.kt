@@ -10,6 +10,7 @@ object MainComponent {
         Day3Component.day3Solver,
         Day4Component.day4Solver,
         Day5Component.day5Solver,
-        Day6Component.day6Solver
+        Day6Component.day6Solver,
+        Day7Component.day7Solver
     )
 }
