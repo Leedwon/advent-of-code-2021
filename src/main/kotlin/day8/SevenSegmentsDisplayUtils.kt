@@ -33,7 +33,9 @@ class SevenSegmentsDisplayUtils {
         val candidates =
             sixSegmentNumbers
                 .map { number -> number.filter { char -> !sixSegmentNumbers.all { it.contains(char) } } }
+                .flatMap { it.toList() } //chars from string
                 .toSet()
+                .map { it.toString() }
 
         val segment2 = candidates.first { it in one }
         result[2] = segment2
