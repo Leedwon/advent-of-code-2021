@@ -14,6 +14,7 @@ object MainComponent {
         Day7Component.day7Solver,
         Day8Component.day8Solver,
         Day9Component.day9Solver,
-        Day10Component.day10Solver
+        Day10Component.day10Solver,
+        Day11Component.day11Solver
     )
 }
